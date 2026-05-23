@@ -1,0 +1,40 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "cmake",
+            "label": "build",
+            "command": "build",
+            "targets": [
+                "all"
+            ],
+            "preset": "__defaultBuildPreset__",
+            "group": "build",
+            "problemMatcher": [],
+            "detail": "build"
+        },
+        {
+            "type": "shell",
+            "label": "flash",
+            "command": "openocd",
+            "args": [
+                "-f",
+                "openocd_dap.cfg",
+                "-c",
+                //a改成自己的项目名
+                "program build/train.elf verify reset exit"
+            ],
+            "group": "build",
+            "dependsOn": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        },
+        
+    ]
+
+}
