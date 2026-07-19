@@ -1,6 +1,0 @@
-E:/test/remote_control/build/CMakeFiles/train.dir
-E:/test/remote_control/build/CMakeFiles/edit_cache.dir
-E:/test/remote_control/build/CMakeFiles/rebuild_cache.dir
-E:/test/remote_control/build/cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir
-E:/test/remote_control/build/cmake/stm32cubemx/CMakeFiles/edit_cache.dir
-E:/test/remote_control/build/cmake/stm32cubemx/CMakeFiles/rebuild_cache.dir

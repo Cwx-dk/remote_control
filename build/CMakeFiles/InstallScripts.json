@@ -1,8 +1,0 @@
-{
-	"InstallScripts" : 
-	[
-		"E:/test/remote_control/build/cmake_install.cmake",
-		"E:/test/remote_control/build/cmake/stm32cubemx/cmake_install.cmake"
-	],
-	"Parallel" : false
-}

@@ -1,0 +1,15 @@
+build/
+.cache/
+
+# VS Code 自动生成的本地配置（内含你电脑的绝对路径，不适合团队共享）
+.vscode/ipch/
+.vscode/browse.vc.db
+.vscode/cmake-variants.json
+
+# 各种编译临时扩展名
+*.o
+*.obj
+*.d
+*.su
+*.elf
+*.map
