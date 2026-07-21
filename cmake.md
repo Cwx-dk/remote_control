@@ -32,7 +32,9 @@ include("cmake/gcc-arm-none-eabi.cmake")
 project(${CMAKE_PROJECT_NAME})
 message("Build type: " ${CMAKE_BUILD_TYPE})
 
-
+add_link_options(
+    -u _printf_float
+)
 
 # 启用 C 和 ASM 语言支持
 enable_language(C CXX ASM)
