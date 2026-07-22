@@ -19,6 +19,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "adc.h"
+#include "stm32f1xx_hal_gpio.h"
 #include "usart.h"
 #include "gpio.h"
 
@@ -116,7 +117,33 @@ send_test();
     control_get_all_adc();
     int x_number1 = ADC1_number1; 
     int y_number2 = ADC2_number1;
-    printf("ADC1_number1: %d, ADC2_number1: %d\r\n", x_number1, y_number2);
+    // printf("ADC1_number1: %d, ADC2_number1: %d\r\n", x_number1, y_number2);
+    // HAL_Delay(100);
+    int send_data = 0;
+    if(x_number1 > 3000)
+    {
+        send_data = 'G';
+    }else if(x_number1 < 1000)
+    {
+        send_data = 'M';
+    }
+    else if(y_number2 > 3000)
+    {
+        send_data = 'L';
+    }
+    else if(y_number2 < 1000)
+    {
+        send_data = 'R';
+    }
+    else
+    {
+        send_data = 0;
+    }
+    if(HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_0) == GPIO_PIN_RESET)
+    {
+        send_data = 'S';
+    }
+    printf("send_data: %c\r\n", send_data);
     HAL_Delay(100);
   }
   /* USER CODE END 3 */
