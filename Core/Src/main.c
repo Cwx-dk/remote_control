@@ -19,7 +19,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "adc.h"
-#include "stm32f1xx_hal_gpio.h"
+#include "i2c.h"
 #include "usart.h"
 #include "gpio.h"
 
@@ -28,6 +28,7 @@
 #include "blueteeth.h"
 #include "control.h"
 #include <stdio.h>
+#include "oled.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -99,9 +100,12 @@ int main(void)
   MX_USART1_UART_Init();
   MX_ADC1_Init();
   MX_ADC2_Init();
+  MX_I2C2_Init();
   /* USER CODE BEGIN 2 */
 send_test();
-
+OLED_Init();
+OLED_Clear();
+ OLED_Refresh_Gram();
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -114,6 +118,10 @@ send_test();
     //control_init();
     // int x_number1 = control_get_adc1_number1();
     // int y_number2 = control_get_adc1_number2();
+    OLED_ShowString(0, 0, "ADC1:", 16);
+    OLED_ShowNum(48, 0, ADC1_number1, 4, 16);
+    OLED_ShowString(0, 16, "ADC2:", 16);
+    OLED_ShowNum(48, 16, ADC2_number1, 4, 16);
     control_get_all_adc();
     int x_number1 = ADC1_number1; 
     int y_number2 = ADC2_number1;
@@ -145,6 +153,8 @@ send_test();
     }
     printf("send_data: %c\r\n", send_data);
     HAL_Delay(100);
+    OLED_Refresh_Gram();
+    
   }
   /* USER CODE END 3 */
 }

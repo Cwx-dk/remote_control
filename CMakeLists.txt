@@ -64,7 +64,7 @@ endfunction()
 ###############################在此处新添加你的文件路径#########
 USER_ADD_DIR(${CMAKE_SOURCE_DIR}/BSP/Inc)
 USER_ADD_DIR(${CMAKE_SOURCE_DIR}/BSP/Src)
-
+USER_ADD_DIR(${CMAKE_SOURCE_DIR}/Drivers/OLED)
 
 add_custom_command(
     TARGET ${PROJECT_NAME} POST_BUILD
